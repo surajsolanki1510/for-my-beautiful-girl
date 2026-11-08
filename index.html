@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0908" />
+    <title>For my Beautiful Girl</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="is-locked">
+    <div class="grain" aria-hidden="true"></div>
+    <audio id="song" src="assets/perfect.mp3" loop preload="auto"></audio>
+    <button class="mute-btn" id="muteBtn" hidden aria-label="Mute song">♪</button>
+
+    <section class="view active" id="view-gate">
+      <button class="gate" id="gateBtn" type="button">
+        <span class="gate-flower">❀</span>
+        <span class="gate-kicker">a letter, a night, three words</span>
+        <h1 class="gate-title">For my<br />Beautiful Girl</h1>
+        <span class="gate-hint">tap to open</span>
+      </button>
+    </section>
+
+    <section class="view" id="view-proposal">
+      <div class="proposal" id="proposal">
+        <article class="slide is-on" data-slide="0">
+          <p class="script">Hi,<br />Beautiful Girl.</p>
+        </article>
+
+        <article class="slide" data-slide="1">
+          <img class="slide-photo-img" src="assets/sunflower.jpg" alt="" />
+          <div class="slide-veil"></div>
+          <p class="slide-copy">You came all the way from Navi Mumbai.</p>
+        </article>
+
+        <article class="slide" data-slide="2">
+          <p class="slide-copy huge">Just for me.</p>
+        </article>
+
+        <article class="slide" data-slide="3">
+          <img class="slide-photo-img" src="assets/garden.png" alt="" />
+          <div class="slide-veil"></div>
+          <p class="slide-copy">Us raat main teri taraf dekh bhi nahi paaya.</p>
+        </article>
+
+        <article class="slide" data-slide="4">
+          <p class="slide-copy">Ab nazar hata nahi paata.</p>
+        </article>
+
+        <article class="slide" data-slide="5">
+          <img class="slide-photo-img" src="assets/marine.png" alt="" />
+          <div class="slide-veil"></div>
+          <p class="slide-copy">Rain. A bike. Your hand. A song called Perfect.</p>
+        </article>
+
+        <article class="slide" data-slide="6">
+          <blockquote class="shayari on-dark">
+            <p>teen words, itne time se stuck in my chest</p>
+            <p>aaj nikal raha hoon — kyunki tu meri hai, that’s it.</p>
+          </blockquote>
+        </article>
+
+        <article class="slide ask" data-slide="7">
+          <p class="script ask-name">Vedu</p>
+          <h2 class="ask-title">I love you.</h2>
+          <div class="ask-actions">
+            <button class="yes-btn" id="yesBtn" type="button">I love you too</button>
+            <button class="no-btn" id="noBtn" type="button">No</button>
+          </div>
+        </article>
+
+        <article class="slide ask" data-slide="8">
+          <p class="slide-copy">ek aur baat poochni thi</p>
+          <h2 class="ask-title">forever?</h2>
+          <div class="ask-actions">
+            <button class="yes-btn" id="foreverBtn" type="button">Forever</button>
+            <button class="no-btn" id="foreverNo" type="button">No</button>
+          </div>
+        </article>
+
+        <article class="slide celebrate" data-slide="9">
+          <p class="script">that’s all I needed.</p>
+          <p class="slide-copy soft">ab chal, main tujhe woh raat dikhata hoon.</p>
+          <button class="enter-btn" id="enterMemories" type="button">Enter our memories</button>
+        </article>
+      </div>
+      <p class="proposal-hint" id="proposalHint">tap to continue</p>
+    </section>
+
+    <section class="view" id="view-home">
+      <header class="home-head">
+        <p class="kicker">ours, only ours</p>
+        <h1>The nights<br />we keep</h1>
+        <p class="home-letter">
+          yeh woh raatein hain jo main kabhi bhoolna nahi chahta.
+          Memory 01, 02, aur 03 — teeno ready hain. tap karo.
+          baaki memories infinite hain. zindagi likhti rahegi.
+        </p>
+      </header>
+
+      <div class="memory-wall">
+        <button class="memory-card featured" id="openMemory1" type="button">
+          <div class="card-photo">
+            <img src="assets/garden.png" alt="Us on a garden bench" />
+            <span class="open-cue">
+              <span class="open-cue-dot"></span>
+              tap here to open this night
+            </span>
+          </div>
+          <div class="card-meta">
+            <span>Memory 01</span>
+            <h2>The Night You Came for Me</h2>
+            <p>Mulund · rain · the night we became us</p>
+            <span class="open-link">open memory →</span>
+          </div>
+        </button>
+        <button class="memory-card featured morning" id="openMemory2" type="button">
+          <div class="card-photo">
+            <img src="assets/mirror.jpeg" alt="Us in matching black" />
+            <span class="open-cue">
+              <span class="open-cue-dot"></span>
+              tap here to open this morning
+            </span>
+          </div>
+          <div class="card-meta">
+            <span>Memory 02</span>
+            <h2>The Morning She Already Knew</h2>
+            <p>9 AM · coffee · a rose · 5:30 PM</p>
+            <span class="open-link">open memory →</span>
+          </div>
+        </button>
+        <button class="memory-card featured garba" id="openMemory3" type="button">
+          <div class="card-photo">
+            <img src="usonphone.jpeg" alt="Our Navratri stories, side by side on two phones" />
+            <span class="open-cue">
+              <span class="open-cue-dot"></span>
+              tap here to open this night
+            </span>
+          </div>
+          <div class="card-meta">
+            <span>Memory 03</span>
+            <h2>The Night We Didn't Come Home</h2>
+            <p>Garba · the reel · Marine Drive · the meal we found</p>
+            <span class="open-link">open memory →</span>
+          </div>
+        </button>
+        <div id="futureMemories" class="future-memories"></div>
+        <div id="memorySentinel" class="memory-sentinel" aria-hidden="true"></div>
+      </div>
+
+      <p class="home-foot">for you, from me. forever.</p>
+    </section>
+
+    <section class="view" id="view-memory-1">
+      <div class="progress" id="progress"></div>
+      <button class="back-btn" id="backHome" type="button">← memories</button>
+
+      <article class="story">
+        <header class="story-hero">
+          <img src="assets/garden.png" alt="" />
+          <div class="hero-copy">
+            <span>Memory 01</span>
+            <h1>The Night You<br />Came for Me</h1>
+            <p>You crossed the whole city just for me. Us raat ke baad main wahi ka wahi hoon.</p>
+          </div>
+        </header>
+
+        <section class="chapter paper">
+          <span class="num">01</span>
+          <h2>Just for me</h2>
+          <p>
+            You came to Mulund station all the way from Navi Mumbai.
+            Just for me. Just for me, okay?
+          </p>
+          <p>
+            You sent me a location, and a photo. I stay in Mulund.
+            Main wahan roz travel karta hoon. But that photo…
+            I had never seen that place like that. Apna hi station tha,
+            aur mujhe pata hi nahi tha ki aise bhi dikhta hai.
+          </p>
+          <blockquote class="shayari on-paper">
+            <p>navi mumbai se aayi, just for me</p>
+            <p>mulund kabhi home nahi lagta tha, jab tak tu usme utri nahi</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter">
+          <span class="num">02</span>
+          <h2>Pehli baar, saamne</h2>
+          <p>
+            Phir I found you. You were looking at your phone.
+            Tu ne mujhe abhi dekha bhi nahi tha. Pehle sirf call thi, text tha.
+            Ye pehli baar tha jab hum ek dusre ke saamne khade the, in person.
+          </p>
+          <p>
+            Us time main totally underconfident tha. Pata nahi tha kya bolu,
+            kaise bolu, tujhe comfortable kaise karu. Main kisi se bhi baat kar leta hoon.
+            Random logon se dosti ho jaati hai. But around you…
+            focus hi nahi ho raha tha. Eye contact nahi bana pa raha tha.
+            Blush kar raha tha jaise main yeh aadmi hi nahi hoon.
+            Mujhe khud pe bhi hasi aa rahi thi.
+          </p>
+          <p>
+            Phir tu ne mera haath pakda. Tera haath mere biceps pe.
+            Aur raat chalne lagi.
+          </p>
+          <blockquote class="shayari">
+            <p>duniya se baat karna aata hai mujhe, yaar</p>
+            <p>tere saamne meri poori awaaz hi sharma gayi</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter split">
+          <div class="copy">
+            <span class="num">03</span>
+            <h2>Two gardens</h2>
+            <p>
+              Main tujhe bike pe bithaya, aur Cypress Garden le gaya.
+              Call pe promise kiya tha — jab milunga, tera haath pakdunga,
+              aur ek beautiful song gaunga.
+            </p>
+            <p>
+              Raat ko garden mein bheed thi. Toh hum dusre garden chale gaye,
+              jahan kutte the. Wahan baithe. Aur main confuse ho gaya —
+              kya bolu, kaise bolu. Teri taraf dekh nahi pa raha tha.
+              Itna blush, itna alag aura. Main aisa banda hi nahi hoon.
+              But tere around, mujhe samajh nahi aa raha tha kya ho raha hai.
+            </p>
+            <p>Dheere dheere convo shuru hui.</p>
+            <p class="whisper">धीरे धीरे, बहुत अच्छा हुआ।</p>
+            <blockquote class="shayari">
+              <p>promise tha — haath thaamunga, gaana gaunga</p>
+              <p>tu aayi, aur main aankhein bhi nahi utha paya</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="chapter media-block">
+          <span class="num">04</span>
+          <h2>McDonald’s wali baat</h2>
+          <p>
+            Movie book ki, phir socha — pehle apan khane chalte hain.
+            Cypress se MacD. Usi raste pe vibe aa gayi. Logon pe mazak,
+            hasi, apna sa bond. Jaise hum log kai saalon se yeh kar rahe hain.
+          </p>
+          <figure class="frame video-frame">
+            <video data-src="assets/macd.mp4" muted loop playsinline preload="none"></video>
+            <figcaption>Woh MacD wala moment. Hum, already looking like a story.</figcaption>
+          </figure>
+          <p>
+            Full meal order kiya, usme ice cream bhi thi. Khana khaya, maza aaya.
+            Ek aurat humein dekh rahi thi, continuously. Adore kar rahi thi.
+            Woh moment tha — hum enjoy kar rahe hain, aur koi hamari bond ko
+            appreciate kar raha hai. Ajeeb sa, accha sa.
+          </p>
+          <figure class="frame portrait">
+            <img src="assets/sunkiss.jpg" alt="A kiss on your cheek" />
+          </figure>
+          <blockquote class="shayari">
+            <p>ek random woman ne bhi dekh liya humein</p>
+            <p>bina bole keh diya — yeh dono toh ho chuke</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter paper thrill">
+          <span class="num">05</span>
+          <h2>Helmet, ice cream, excavator</h2>
+          <p>
+            Movie late ho gaye the, toh nikal gaye. Helmet wahi chhoot gaya.
+            Ice cream collect karni thi, woh bhi bhool gaya.
+            Lagta hai upar wale ko ice cream se better dessert dena tha.
+          </p>
+          <p>
+            Movie mein helmet dikha. Main — oh fuck, MacD pe helmet chhoot gaya.
+            Tu boli, chill. Mil jayega. Nahi mila toh kya hua.
+            Apan hai, apan le lenge naya.
+          </p>
+          <p>
+            Woh baat meri andar utar gayi. Ki haan yaar, jo bhi hoga, dekha jayega.
+            Chal, kar lenge apan.
+          </p>
+          <p>
+            Phir movie mein ice cream dikhi. Are shit yaar, ice cream bhi khilana bhool gaya.
+            Tu boli, chhod yaar, chill karte hain. Mereko maza aata hai tere saath.
+          </p>
+          <p>
+            Interval. Tu boli, aaja helmet ek baar dekh aate hain.
+            Watchman ko bola, helmet lena hai, warna mummy daantengi.
+            Woh bola, ja, lekin jaldi aa. Main bola, isko bhi leke jaunga.
+            Woh — nahi, tu akela jayega. Main bola, nahi. Helmet nahi chahiye
+            agar tu nahi aa rahi. Phir unhone haan kar di.
+          </p>
+          <p>
+            MacD gaye, helmet pada tha. Dono — shit, mil gaya, mil gaya.
+            Itne khush, ek helmet pe. Phir wapas bhaage, hanging like children,
+            movie scene jaisa. Aur wahan excavator tha.
+          </p>
+        </section>
+
+        <section class="chapter kiss-chapter">
+          <figure class="frame video-frame tall">
+            <video data-src="assets/firstkiss.mp4" muted loop playsinline preload="none"></video>
+          </figure>
+          <div class="kiss-text">
+            <span class="num">06</span>
+            <h2>Our first kiss</h2>
+            <p>
+              Woh jagah thi — ambiance itna khoobsurat, jaise raat ne khud
+              hamare liye lights bichha di hon. Wahan humne pehli baar kiss kiya.
+              Craziest moment tha. Hamara moment tha.
+              Ice cream nahi, yeh dessert thi jo tu deserve karti thi.
+              God ne socha, nahi, isse better milna chahiye.
+              Aur mil gaya.
+            </p>
+            <blockquote class="shayari">
+              <p>ice cream nahi, ek sundar mahol mila</p>
+              <p>us pal mein time ruka, aur hum mil gaye sach-sach</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="chapter rain-chapter" id="rainChapter">
+          <div class="rain-inner">
+            <span class="num">07</span>
+            <h2>Perfect, baarish mein</h2>
+            <p>
+              Movie ke baad bahar nikalte hi tez baarish. Hum khade the, wait kar rahe the.
+              Tu ne hoodie pehni. Mujhe pata nahi kya hua —
+              maine haath hoodie ke andar daala, tujhe kamar se pakda,
+              aur hum gane lage.
+            </p>
+            <p class="song-name">Perfect</p>
+            <p>
+              Tu meri baahon mein. Dream jaisa tha, ek beautiful song ke andar.
+              Tujhe baarish pasand hai. Main comfort zone wala banda hoon,
+              gila-maila nahi hona chahta. But us time —
+              chale yaar, jeete apni zindagi. Let’s just go. Jo bhi hota hai, dekha jayega.
+            </p>
+            <div class="duo">
+              <figure class="frame portrait">
+                <img src="assets/shadow.jpg" alt="Our shadow on wet ground" />
+              </figure>
+              <figure class="frame portrait">
+                <img src="assets/mall.jpg" alt="The corridor we waited in" />
+              </figure>
+            </div>
+            <blockquote class="shayari">
+              <p>main baarish se bhagta tha, tu baarish se milti thi</p>
+              <p>us raat main bheeg gaya — teri baahon mein, Perfect pe</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="chapter media-block">
+          <span class="num">08</span>
+          <h2>Hot coffee. Thandi baarish.</h2>
+          <p>
+            Bike pe nikal gaye, heavy rainfall, dono shivering like anything.
+            7-Eleven pe ruke. Coffee pi. Counter wale ne poocha, hot ya cold.
+            Main — bhai, mujhe dekh. Main kaamp raha hoon, tu cold pooch raha hai.
+            Of course hot chahiye.
+          </p>
+          <figure class="frame video-frame">
+            <video data-src="assets/coffee.mp4" muted loop playsinline preload="none"></video>
+            <figcaption>Coffee, thoda caffeine, thodi garmi, phir Marine Drive.</figcaption>
+          </figure>
+          <p>
+            Tu peeche baithi, mera bag pehen ke, mujhe pakad ke.
+            Main soch raha tha — dude, she is so pretty. She is so cute.
+            Mulund se Marine Drive, poora raasta kaampte hue.
+            Aur main phir se karunga.
+          </p>
+        </section>
+
+        <section class="chapter marine-chapter">
+          <figure class="frame landscape">
+            <img src="assets/marine.png" alt="Us at Marine Drive" />
+          </figure>
+          <div class="copy">
+            <span class="num">09</span>
+            <h2>Marine Drive</h2>
+            <p>
+              Wahan baithe, lambi baat hui. Tu thodi shy thi, thodi upset.
+              Phir maine woh baat bol di jo dil nahi rok raha tha —
+              I am getting attached to you.
+            </p>
+            <p>
+              Tu boli, I don’t want to get attached. Main bola, theek hai.
+              Relation ek insaan ki marzi se nahi chalta. Dono ki decision se chalta hai.
+              Agar tujhe attachment nahi feel ho rahi, it’s okay. Hum aage nahi badhenge.
+            </p>
+            <p>
+              Phir tu chup ho gayi. Phir meri baahon mein royi.
+              Heaviest moment tha. Last thing I don’t want in my life is
+              to see you cry.
+              Please bol, kya ho raha hai, main keh raha tha. Tu kuch nahi bol rahi thi.
+            </p>
+            <blockquote class="shayari">
+              <p>maine kaha main attach ho raha hoon</p>
+              <p>tu chup rahi, phir meri baahon mein royi — samundar bhi sharma gaya</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">10</span>
+          <h2>Woh garden jo wait kar raha tha</h2>
+          <p>
+            Baarish ab bhi, dono kaamp rahe the. Chalo, kuch khaate hain,
+            body ko garmi mile. Marines se ghar ki taraf. Tu apni bike pe so rahi thi.
+            Mirror mein dekh ke soch raha tha, kitni cute hai. Ek garden dikha.
+            Hey Vedu, energy hai explore karne ki?
+            Tu boli, are, main 100% ready. Mere mein energy bahut hai.
+          </p>
+          <p>
+            Hum chale. Attachment wali baat main ignore kar raha tha.
+            Sirf yeh soch raha tha, kaise tujhe hasau, kaise tujhe alive feel karaun.
+            Phir tu ne wahi sawaal poocha. Tu mujhse sach mein nahi milega?
+          </p>
+          <p>
+            Main khud se jhoot nahi bol sakta. Main attached feel kar raha hoon,
+            matlab main sach bol raha hoon. I am a man of my words.
+            Main milna chahta hoon. Forever, aise hi masti, random logon ke saath
+            baithe, tera naam lena — haan, yeh meri hai. Kyunki hum vibe karte hain.
+            Jab hum around each other hote hain, hum literally bachche ho jaate hain.
+            That’s the fire.
+          </p>
+          <p>
+            Phir garden mein ek uncle ruk gaye. Teen daanton ki woh smile —
+            thodi kachi, thodi shy, lekin itni saaf ke dil turant garam ho jaaye.
+            Seedhe, pyaare insaan. Cute, haan, woh sach mein cute the.
+            Unhe pata nahi tha hum kya soch rahe hain. Unhone aise hi,
+            jaise koi dua de raha ho, kaha — shaadi kar lo tum dono,
+            jaise Yusuf ne Riddhi se ki. 😊😊
+          </p>
+          <p>
+            Woh ek baar nahi aaye. Doosri, teesri, chaar se zyada baar —
+            sirf humse baat karne. Jaise garden unka bahana tha,
+            aur hamari hasi unka raasta. Unhe nahi pata tha
+            ke unki woh masoom si dua hamare raat ka hissa ban gayi.
+          </p>
+        </section>
+
+        <section class="chapter media-block">
+          <figure class="frame video-frame">
+            <video data-src="assets/sweettalk.mp4" muted loop playsinline preload="none"></video>
+          </figure>
+          <p>
+            Phir meri aadat, tujhe tease karna.
+            Achha, ab attachment feel ho rahi hai? Sachi, tu mujhe jail legi?
+            Main bohot nakre wala banda hoon, bohot masti karta hoon.
+            Kya tu mujhe sachi jail legi?
+          </p>
+          <p>
+            Tu ne sir ko knock kiya, muskura ke.
+            Fucking cutest moment. Wahi smile.
+          </p>
+          <figure class="frame portrait">
+            <img src="assets/garden.png" alt="The garden where we chose each other" />
+          </figure>
+          <p>
+            Mulund wapas, tez baarish. Main bola, peeche so ja. Mirror mein dekh raha tha —
+            tu so rahi hai apni bike pe. Fucking cute.
+          </p>
+          <p>
+            Shop band thi. Aur guess what — jo garden main tujhe shuru mein dikhana chahta tha,
+            raat wahi le aayi. Chips, paani. Poori journey mein ek sip nahi piya tha.
+            Tu ne apne haath se mujhe khilaya.
+          </p>
+          <p class="whisper">
+            “Yaar, main kar lungi. Main tujhe jail lungi.
+            Main tere dono sides jail lungi, theek hai?”
+          </p>
+          <p>
+            Agar tu mere saath hai, mujhe aur kuch nahi chahiye.
+            Bas teri loyalty. Baaki sab main dekh lunga. Future kaisa bhi ho,
+            tujhe bohot accha rakhunga. Main sach bolta hoon.
+            Trust me, aur mera haath pakad ke rakh — forever.
+          </p>
+          <blockquote class="shayari">
+            <p>sir hilaya, muskuraayi — boli, main tujhe jail lungi</p>
+            <p>us smile ne meri poori zindagi lock kar di</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter paper last">
+          <span class="num">11</span>
+          <h2>Thodi der aur ruk ja</h2>
+          <p>
+            Phir time aa gaya tujhe ghar chhodne ka. Mulund station. Dono sad.
+            Thoda aur ruk jaate yaar. Thodi der aur ruk ja.
+          </p>
+          <p>
+            Haath pakde hue, hug. Face to face dekh nahi pa rahe the.
+            Train mein utara. Train abhi chali bhi nahi thi,
+            meri aankhein tujhe dekh rahi thi. Mat ja yaar. Itna jaldi mat ja. Please.
+          </p>
+          <p>
+            Tu numb thi. Main tujhe numb nahi jaane dena chahta tha.
+            Ek smiley face chahiye tha, pretty smiley face.
+            Hum nahi chahte the itna jaldi alag hona.
+            Ab bhi nahi chahte.
+          </p>
+          <blockquote class="shayari on-paper">
+            <p>train khadi thi, tu jaane wali thi, main kehta raha — mat ja yaar</p>
+            <p>kuch alvida dil pe tattoo ho jaate hain, mitaaye nahi jaate</p>
+          </blockquote>
+          <p class="end-line">
+            Woh raat thi jab tu mere liye aayi.<br />
+            Woh raat thi jab hum hum ban gaye.
+          </p>
+          <button class="enter-btn" id="endBack" type="button">Back to our memories</button>
+        </section>
+      </article>
+    </section>
+
+        <section class="view" id="view-memory-2">
+      <div class="progress rose-progress" id="progress2"></div>
+      <button class="back-btn" id="backHome2" type="button">← memories</button>
+
+      <article class="story story-morning">
+        <header class="story-hero m2-hero">
+          <img src="assets/mirror.jpeg" alt="" />
+          <div class="hero-copy">
+            <span>Memory 02</span>
+            <h1>The Morning<br />She Already Knew</h1>
+            <p>Do hafte se tu meri neend mein thi. Aaj subah late utha. Phir bhi, sirf tere liye nikal aaya.</p>
+          </div>
+        </header>
+
+        <section class="chapter paper">
+          <span class="num">01</span>
+          <h2>Do hafte ki pyaas</h2>
+          <p>
+            Do hafte. Har raat, har subah — tu.
+            Manali ke chhote-chhote pal jo main tujhe dena chahta tha.
+            Woh cheezein jo gift nahi kehlati, lekin dil ke kareeb rakhi thi.
+            Aur ek cheez jo mujhe jeene ke liye motivate karti hai —
+            woh watch. Gift nahi. Maine tujhe di. Kyunki jo mujhe sambhalti hai,
+            woh ab tere haath pe rehni chahiye.
+          </p>
+          <p>
+            Main late utha. Neend adhuri. Phir bhi nikal pada.
+            Ek ghanta bees minute bike. Body thak ke caffeine maang rahi thi.
+            Aur dil maang raha tha — bas tujhe.
+          </p>
+        </section>
+
+        <section class="chapter coffee-chapter">
+          <span class="num">02</span>
+          <h2>Cute steps, coffee, ek chhoti si bike</h2>
+          <p>
+            Hostel. Maine tujhe call kiya.
+            Phir woh chehra. Itna chhota, itna pyaara —
+            tu meri taraf chalti aayi, cute-cute steps,
+            haath mein cup, haath mein ek chhoti si bike.
+            Main dekh ke ruk gaya. Itni cutish walk, itni narm subah.
+          </p>
+          <p>
+            Tune woh cup diya. Main pyaasa tha us coffee ka —
+            lekin us pal tu coffee se bhi zyada garam thi mere liye.
+            Main sach mein pyaar kar baitha us pal se, dobara, gehra.
+          </p>
+          <figure class="frame portrait coffee-frame">
+            <div class="coffee-drizzle" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <div class="coffee-steam" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="assets/coffee.jpeg" alt="You holding a cup that said But first, coffee" />
+            <figcaption>But first, coffee. Pehle tu. Hamesha tu.</figcaption>
+          </figure>
+          <p>
+            Tu jaldi mein thi. Chalo yahan se, koi dekh lega.
+            Main samajh gaya. Hum nikal pade.
+          </p>
+          <blockquote class="shayari">
+            <p>do hafte se tujhe dekhna chahta tha</p>
+            <p>tu coffee leke aayi — jaise meri pyaas tujhe yaad thi</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">03</span>
+          <h2>Tees minute aur, phir sukoon</h2>
+          <p>
+            Garden tees minute door tha.
+            Pehle se ek ghanta bees minute nikal chuka tha.
+            Phir bhi chale. Kyunki tu kehti, chalo.
+          </p>
+          <p>
+            Wahan garden itna shaant tha, jaise duniya ne hamare liye volume band kar diya ho.
+            Hum baithe. Aur wahi, us shaanti mein,
+            jo main soch ke aaya tha — woh sab tujhe diya.
+          </p>
+        </section>
+
+        <section class="chapter rose-theater" id="roseTheater">
+          <div class="petals" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <article class="rose-beat is-on" data-beat="0">
+            <p class="script">garden.</p>
+            <p class="slide-copy soft">kuch pal chhupaye rehte hain, jab tak tu unhe khole.</p>
+          </article>
+          <article class="rose-beat" data-beat="1">
+            <p class="slide-copy">yeh dil bhi kitna paagal hai</p>
+          </article>
+          <article class="rose-beat" data-beat="2">
+            <p class="slide-copy">ke pyaar to tumse karta hai</p>
+          </article>
+          <article class="rose-beat" data-beat="3">
+            <p class="slide-copy">par saamne tum jab aate ho</p>
+          </article>
+          <article class="rose-beat" data-beat="4">
+            <p class="slide-copy huge">kuch bhi kehne se darta hai.</p>
+          </article>
+          <article class="rose-beat" data-beat="5">
+            <p class="script">yeh gaana teri shyness ke naam.</p>
+            <p class="slide-copy soft">pehli raat se alag. is baar tu itni shy thi. isliye yeh pal tujhe deserve karta hai.</p>
+          </article>
+          <article class="rose-beat rose-reveal" data-beat="6">
+            <figure class="frame video-frame rose-video">
+              <video data-src="assets/rose.mp4" loop playsinline preload="none" data-sound="on"></video>
+            </figure>
+          </article>
+          <p class="rose-hint" id="roseHint">tap to feel this</p>
+        </section>
+
+        <section class="chapter">
+          <span class="num">04</span>
+          <h2>Gulab, watch, gulabi baaliyan</h2>
+          <p>
+            Us garden mein maine tujhe rose diya. Gaaya. Nacha.
+            Duniya ki koi nazar nahi — sirf tu, thodi si shy, thodi si meri.
+          </p>
+          <p>
+            Phir woh watch. Jo mujhe har subah uthati hai, jo mujhe inspire karti hai —
+            maine woh tere haath pe rakh di. Gift ka lafz chhota padta hai.
+            Yeh toh meri himmat ka tukda hai, ab tere paas.
+          </p>
+          <p>
+            Aur woh chhoti si pink earrings.
+            Tujhe pink pasand hai. Main jaanta bhi nahi tha ki main pink hi uthane wala hoon —
+            unhe dekhte hi dil khich gaya. Unknowingly, teri colour meri shopping ban gayi.
+            Tu itni khush hui. Itna blush. Itna saara blush.
+            Main tera woh shy chehra dekh ke doob raha tha.
+          </p>
+          <blockquote class="shayari">
+            <p>tu shy thi, isliye yeh gaana tera tha</p>
+            <p>ek gulab, ek watch, gulabi baaliyan — aur tu, meri dua</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">05</span>
+          <h2>Black pe black</h2>
+          <p>
+            Unknowingly hum dono black mein the.
+            Jaise subah ne kah diya ho — aaj tum ek dusre ke kapdon mein bhi miloge.
+            Mirror ke saamne tu ne mera chehra pakda. Ek kiss.
+            Wahi photo jo ab is kahani ka chehra hai.
+          </p>
+        </section>
+
+        <section class="chapter outfit-gate" id="outfitGate">
+          <div class="outfit-lock">
+            <p class="script">ek aur pal chhupa hai</p>
+            <p class="slide-copy soft">tap — dekh, hum kaise ek rang ke the</p>
+          </div>
+          <figure class="frame video-frame outfit-video">
+            <video data-src="assets/outfit.mp4" muted loop playsinline preload="none"></video>
+          </figure>
+        </section>
+
+        <section class="chapter">
+          <span class="num">06</span>
+          <h2>Dessert with a dessert</h2>
+          <p>
+            Phir pet ne yaad dilaya — yaar, kuch khana hai.
+            Hum chhote se pastry pe ruk gaye. Ek hi, dono ne baanti.
+            Tu dessert. Woh pastry bhi dessert.
+            Itna meetha pal, itna seedha.
+          </p>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">07</span>
+          <h2>Doosri morning ki picture</h2>
+          <p>
+            Phir movie. Morning show. Cute si film.
+            Main aisa banda nahi — aisi films pehle meri nahi thi.
+            Lekin tere saath, main poora usme baith gaya.
+            Best movie. Best person. Tera haath mere haath mein.
+            Tu meri baahon mein. Screen chalu thi, lekin asl film hum the.
+          </p>
+          <p>
+            Phir ek married couple aaya — yeh hamari seat hai.
+            Main thoda gusse mein. Dude, yeh tumhari nahi.
+            Check karo. Uske partner aise the jaise Doremi —
+            halki si hawa, koi jhagda nahi. Hum unhe bhool gaye.
+            Aur sach? Film toh humne dekhi hi nahi.
+            Hum khud mein uljhe rahe. Pata hi nahi chala screen pe kya chal raha tha.
+          </p>
+          <p>
+            Bahar nikalte hi dono ne idhar-udhar dekha.
+            Koi nahi dekh raha. Phir woh pal —
+            jo sirf hamara tha, jo shabdon se bada tha.
+          </p>
+        </section>
+
+        <section class="chapter">
+          <span class="num">08</span>
+          <h2>Door se, ek pretty si ladki</h2>
+          <p>
+            Bhookh phir aayi. Main order kar raha tha,
+            aur tu door se mujhe record kar rahi thi.
+            Itna cute. Main wahan se tujhe dekh raha tha —
+            ek pretty si ladki, meri wait karti hui.
+            Main tujhe us pal bahut, bahut, bahut pyaar kar raha tha.
+          </p>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">09</span>
+          <h2>Mandir, jheel, udta hua waqt</h2>
+          <p>
+            Phir hum baithe. Garden nahi — mandir ke bagal ek khoobsurat jheel.
+            Baatein. Itni narm, itni gehri.
+            Waqt titali ban ke ud gaya.
+            Laga, abhi ek ghanta hua hoga.
+            Phir pata chala — 9 baje se 5:30.
+            Itni der, itni kareeb, itni kam.
+          </p>
+          <p>
+            Tujhe 6 baje hostel pahunchna tha.
+            Deadline khadi thi, aur hum abhi bhi us jheel pe the,
+            jaise raat rok denge.
+          </p>
+        </section>
+
+        <section class="chapter">
+          <span class="num">10</span>
+          <h2>Woh pearl tere haath pe</h2>
+          <p>
+            Watch dheeli thi. Main chahta tha woh pearl —
+            woh watch — tere haath pe perfect baithe.
+            Main dhoondta raha. Aur ruk gaya Titan pe.
+            Wahi series. Wahi cheez jo mujhe personally motivate karti hai.
+            Jo main chahta tha tu dekhe, usi dukaan pe zindagi le aayi.
+          </p>
+          <p>
+            Wahan wali ma’am itni pyaari thin. Humein itna adore kiya.
+            Muskurake boli, nahi nahi, aapse nahi lenge.
+            Watch theek kar di, bina paise ke.
+            Woh muskaan bhi hamari kahani ka hissa ban gayi.
+          </p>
+        </section>
+
+        <section class="chapter paper last">
+          <span class="num">11</span>
+          <h2>Thoda time aur</h2>
+          <p>
+            End mein tujhe hostel chhod aaya.
+            Dono ke munh pe wahi baat — thoda time aur. Thoda time aur.
+            Lekin waqt phir titali ban gaya. Ud gaya.
+          </p>
+          <p>
+            9 se 5:30. Ek coffee. Ek gulab. Ek watch. Ek blush.
+            Aur tu, jo do hafte se meri saanson mein thi.
+          </p>
+          <blockquote class="shayari on-paper">
+            <p>yeh dil bhi kitna paagal hai, ke pyaar to tumse karta hai</p>
+            <p>par saamne tum jab aate ho, kuch bhi kehne se darta hai</p>
+          </blockquote>
+          <p class="end-line">
+            Us subah tu coffee leke aayi.<br />
+            Us shaam tak meri poori zindagi tere haath mein dheeli padh chuki thi — aur main chahta tha wahi.
+          </p>
+          <button class="enter-btn" id="endBack2" type="button">Back to our memories</button>
+        </section>
+      </article>
+    </section>
+
+    <section class="view" id="view-memory-3">
+      <div class="progress garba-progress" id="progress3"></div>
+      <button class="back-btn" id="backHome3" type="button">← memories</button>
+
+      <article class="story story-garba">
+        <header class="story-hero m3-hero">
+          <img src="usonphone.jpeg" alt="" />
+          <div class="hero-copy">
+            <span>Memory 03</span>
+            <h1>The Night We<br />Didn't Come Home</h1>
+            <p>Do phone ek saath. Ek dhol. Phir bike, samundar, aur bhookh jo mehfil ban gayi.</p>
+          </div>
+        </header>
+
+        <section class="night-ticket" aria-label="The shape of this night">
+          <p>ek raat, teen hisse</p>
+          <ol>
+            <li>Garba</li>
+            <li>Marine</li>
+            <li>Khaana</li>
+          </ol>
+        </section>
+
+        <section class="chapter paper">
+          <span class="num">01</span>
+          <h2>Pehle safed</h2>
+          <p>
+            Raat shuru hone se pehle hi tu screen pe thi.
+            Safed dupatta, laal choli, bindi, aur woh muskaan
+            jo video call pe bhi garam thi. Main corner mein chhota sa,
+            pehle se has raha tha — jaise pata ho ki aaj ghar jaldi nahi jaana.
+          </p>
+          <figure class="frame portrait">
+            <img src="whiteveduoutfitnavratri.jpeg" alt="You in white and red, on the call before Garba" />
+            <figcaption>Pehli nazar us raat ki. Safed mein, mere liye.</figcaption>
+          </figure>
+          <blockquote class="shayari on-paper">
+            <p>safed dupatte mein aayi, screen pe hi jaan le li</p>
+            <p>bindi thi chhoti, raat usse badi nikli</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter">
+          <span class="num">02</span>
+          <h2>Dhol ke andar</h2>
+          <p>
+            Phir tu ne woh lehenga pehna — kaala, laal, phoolon se bhara.
+            Main white kurta, kaala stole. Do alag phone. Do alag gaane.
+            Teri story pe Saibo Re. Meri pe Tari Aankh.
+            Aur beech mein hum, ek dusre ko dikha rahe the
+            jaise poori duniya ko is raat ka invite de rahe hon.
+          </p>
+          <p>
+            Humne Garba khela. Sach mein khela.
+            Pair, hasi, dhol, aur itni photos ki gallery bhar gayi.
+            Masti itni thi jaise raat hamari personal mehfil ho.
+          </p>
+          <figure class="frame portrait">
+            <img src="smileus.jpeg" alt="Us laughing together after Garba" />
+            <figcaption>Dhol ruka. Teri hasi nahi ruki.</figcaption>
+          </figure>
+          <p>
+            Bench pe. Teri hasi khuli hui. Mera haath tere peeche.
+            Building ki deewar, raat ka bulb, aur tu —
+            jaise gaana band hone ke baad bhi andar baj raha ho.
+          </p>
+          <figure class="frame portrait">
+            <img src="onthekeens.jpeg" alt="Me on my knees, your hand in mine" />
+            <figcaption>Ghutnon pe. Tera haath. Filmy pal, hamara pal.</figcaption>
+          </figure>
+          <p>
+            Phir main ghutnon pe aa gaya. Tera haath mere haath mein.
+            Tu upar se dekh ke muskura rahi thi.
+            Seedha khade rehna mushkil ho gaya tha.
+            Jaise koi gaana beech mein ruk ke sirf tujhe dekhne laga ho.
+          </p>
+          <blockquote class="shayari">
+            <p>tu hasi, main ghutnon pe aa gaya</p>
+            <p>poori film ka climax tere haath mein aa gaya</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter reel-stage" id="reelStage">
+          <div class="garba-ring" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="reel-lock">
+            <p class="reel-kicker">highlight · our reel</p>
+            <h2>Yeh raat, loop pe</h2>
+            <p>Jo photos mein adhoora reh gaya, us reel mein poora hai. Tap kar — dhol wapas aa jayega.</p>
+            <span class="reel-tap">play the reel</span>
+          </div>
+          <figure class="frame video-frame reel-video">
+            <video data-src="reeldance.mp4" loop playsinline preload="none" data-sound="on"></video>
+            <figcaption>Hamari Garba reel. Is raat ka dil.</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter sea-chapter" id="seaChapter">
+          <div class="sea-inner">
+            <span class="num">03</span>
+            <h2>Ghar nahi. Samundar.</h2>
+            <p>
+              Dhol ke baad ghar nahi bulaya. Bulaya samundar.
+              Late night. Bike nikali. Tu peeche baithi.
+              Marine ki taraf. Seene mein abhi bhi wohi beat thi,
+              sadkon pe hawa, aur hamare beech woh khamoshi
+              jo sirf tab hoti hai jab dono jaante hon — abhi khatam nahi hua.
+            </p>
+            <figure class="frame video-frame">
+              <video data-src="sheenjoybeach.mp4" muted loop playsinline preload="none"></video>
+              <figcaption>Marine. Hawa. Tu, samundar ke saamne.</figcaption>
+            </figure>
+            <p>
+              Wahan pahunch ke tu paani ke saamne thi.
+              Enjoy kar rahi thi jaise yeh samundar bhi
+              hamari Garba ka aakhri chakkar ho.
+              Sheher peeche. Hawa tez. Aur tu, saamne.
+            </p>
+            <blockquote class="shayari">
+              <p>ghar ka rasta chhod ke samundar aa gaya</p>
+              <p>teri hawa mein jo namak tha, woh mera tha</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="chapter paper feast">
+          <span class="num">04</span>
+          <h2>Bhookh, jo mehfil ban gayi</h2>
+          <p>
+            Garba ke pair, bike ki thakaan, samundar ki hawa —
+            teeno ne ek saath kaha: ab khaana hai.
+            Raat late thi. Dukaanen band.
+            Ek jagah ne shutter gira diya. Doosri jagah andhera tha.
+            Hum phir bhi rukhe nahi.
+          </p>
+          <p>
+            Tu boli, mil jayega. Main bola, mil jayega.
+            Aur mila. Woh jagah jo abhi jaag rahi thi.
+            Garam khaana. Woh wali bhookh jo sirf tab lagti hai
+            jab raat lambi ho chuki ho aur dil abhi bhi nach raha ho.
+          </p>
+          <p>
+            Pehli bite pe dono chup. Phir has pade.
+            Raat ka aakhri gaana us plate pe tha —
+            garam, late, aur sirf hamara.
+            Dhoondne nikle the. Mehfil mil gayi.
+          </p>
+          <blockquote class="shayari on-paper">
+            <p>sheher so gaya, bhookh jaag gayi</p>
+            <p>ek plate ne kaha — abhi raat khatam nahi hui</p>
+          </blockquote>
+        </section>
+
+        <section class="chapter paper last">
+          <span class="num">05</span>
+          <h2>Loop pe reh gayi</h2>
+          <p>
+            Ek safed dupatta. Ek kaala lehenga. Do phone.
+            Ek reel jisme hum abhi bhi nach rahe hain.
+            Ek bike jo Marine tak gayi. Ek plate jisne raat ko rok liya.
+          </p>
+          <p>
+            Hum ghar us waqt nahi aaye the.
+            Hum ek doosre ke paas aaye the.
+          </p>
+          <blockquote class="shayari on-paper">
+            <p>dhol se shuru, samundar se beech, swaad pe khatam</p>
+            <p>yeh woh raat thi jo ghar jaane se inkaar kar gayi</p>
+          </blockquote>
+          <p class="end-line">
+            Humne Garba khela.<br />
+            Phir bike chali.<br />
+            Phir bhookh mili — aur usne humein mehfil de di.
+          </p>
+          <button class="enter-btn" id="endBack3" type="button">Back to our memories</button>
+        </section>
+      </article>
+    </section>
+
+<div class="rain-veil" id="rainVeil" aria-hidden="true"></div>
+    <canvas class="rain-overlay" id="rain" aria-hidden="true"></canvas>
+    <script src="app.js"></script>
+  </body>
+</html>
