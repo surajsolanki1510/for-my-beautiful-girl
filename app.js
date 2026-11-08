@@ -6,6 +6,7 @@ const homeView = document.getElementById("view-home");
 const memoryView = document.getElementById("view-memory-1");
 const memoryView2 = document.getElementById("view-memory-2");
 const memoryView3 = document.getElementById("view-memory-3");
+const memoryView4 = document.getElementById("view-memory-4");
 const gateBtn = document.getElementById("gateBtn");
 const song = document.getElementById("song");
 const nightSong = document.getElementById("memory3song");
@@ -21,15 +22,19 @@ const enterMemories = document.getElementById("enterMemories");
 const openMemory1 = document.getElementById("openMemory1");
 const openMemory2 = document.getElementById("openMemory2");
 const openMemory3 = document.getElementById("openMemory3");
+const openMemory4 = document.getElementById("openMemory4");
 const backHome = document.getElementById("backHome");
 const backHome2 = document.getElementById("backHome2");
 const backHome3 = document.getElementById("backHome3");
+const backHome4 = document.getElementById("backHome4");
 const endBack = document.getElementById("endBack");
 const endBack2 = document.getElementById("endBack2");
 const endBack3 = document.getElementById("endBack3");
+const endBack4 = document.getElementById("endBack4");
 const progress = document.getElementById("progress");
 const progress2 = document.getElementById("progress2");
 const progress3 = document.getElementById("progress3");
+const progress4 = document.getElementById("progress4");
 const rainCanvas = document.getElementById("rain");
 const rainVeil = document.getElementById("rainVeil");
 const rainChapter = document.getElementById("rainChapter");
@@ -43,7 +48,7 @@ let celebrating = false;
 let rainAnim = 0;
 
 function storyViews() {
-  return [memoryView, memoryView2, memoryView3];
+  return [memoryView, memoryView2, memoryView3, memoryView4];
 }
 
 function activeStory() {
@@ -51,7 +56,7 @@ function activeStory() {
 }
 
 function show(view) {
-  [gateView, proposalView, homeView, memoryView, memoryView2, memoryView3].forEach((el) => {
+  [gateView, proposalView, homeView, memoryView, memoryView2, memoryView3, memoryView4].forEach((el) => {
     el.classList.remove("active");
   });
   view.classList.add("active");
@@ -69,7 +74,10 @@ function show(view) {
   if (view === memoryView3) {
     sessionStorage.setItem(VIEW_KEY, "memory3");
     if (typeof resetReelStage === "function") resetReelStage();
-  } else if (typeof resetReelStage === "function") {
+  } else if (view === memoryView4) {
+    sessionStorage.setItem(VIEW_KEY, "memory4");
+  }
+  if (view !== memoryView3 && typeof resetReelStage === "function") {
     resetReelStage();
   }
   if (view !== memoryView && typeof setRainLive === "function") setRainLive(false);
@@ -199,12 +207,15 @@ openMemory2.addEventListener("click", () => {
   show(memoryView2);
 });
 openMemory3.addEventListener("click", () => show(memoryView3));
+openMemory4.addEventListener("click", () => show(memoryView4));
 backHome.addEventListener("click", () => show(homeView));
 backHome2.addEventListener("click", () => show(homeView));
 backHome3.addEventListener("click", () => show(homeView));
+backHome4.addEventListener("click", () => show(homeView));
 endBack.addEventListener("click", () => show(homeView));
 endBack2.addEventListener("click", () => show(homeView));
 endBack3.addEventListener("click", () => show(homeView));
+endBack4.addEventListener("click", () => show(homeView));
 
 const roseTheater = document.getElementById("roseTheater");
 const roseHint = document.getElementById("roseHint");
@@ -292,7 +303,7 @@ reelStage.addEventListener("click", (event) => {
 
 const futureMemories = document.getElementById("futureMemories");
 const memorySentinel = document.getElementById("memorySentinel");
-let nextMemory = 4;
+let nextMemory = 5;
 let lastHomeY = 0;
 let homeGoingUp = false;
 let snappingHome = false;
@@ -321,7 +332,7 @@ function addLockedCards(count = 10) {
 function trimFutureMemories(keep = 12) {
   const cards = [...futureMemories.children];
   cards.slice(keep).forEach((card) => card.remove());
-  nextMemory = 4 + Math.min(cards.length, keep);
+  nextMemory = 5 + Math.min(cards.length, keep);
 }
 
 addLockedCards(12);
@@ -346,7 +357,7 @@ window.addEventListener(
     homeGoingUp = y < lastHomeY - 2;
     lastHomeY = y;
     if (snappingHome || !homeGoingUp) return;
-    if (openMemory3.getBoundingClientRect().bottom > 48) return;
+    if (openMemory4.getBoundingClientRect().bottom > 48) return;
     snappingHome = true;
     trimFutureMemories(12);
     openMemory1.scrollIntoView({ block: "start" });
@@ -417,10 +428,12 @@ window.addEventListener(
   "scroll",
   () => {
     const story = activeStory();
-    const bar = story === memoryView3 ? progress3 : story === memoryView2 ? progress2 : progress;
+    const bar =
+      story === memoryView4 ? progress4 : story === memoryView3 ? progress3 : story === memoryView2 ? progress2 : progress;
     progress.style.width = "0";
     progress2.style.width = "0";
     progress3.style.width = "0";
+    progress4.style.width = "0";
     if (!story) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
@@ -653,6 +666,8 @@ if (preview === "proposal") {
   show(memoryView2);
 } else if (preview === "memory3") {
   show(memoryView3);
+} else if (preview === "memory4") {
+  show(memoryView4);
 } else {
   const lastView = sessionStorage.getItem(VIEW_KEY);
   if (lastView === "memory") {
@@ -663,6 +678,9 @@ if (preview === "proposal") {
     resumeMusicOnTap();
   } else if (lastView === "memory3") {
     show(memoryView3);
+    resumeMusicOnTap();
+  } else if (lastView === "memory4") {
+    show(memoryView4);
     resumeMusicOnTap();
   } else if (lastView === "home") {
     show(homeView);

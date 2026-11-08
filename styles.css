@@ -439,6 +439,34 @@ body.is-locked {
   background: linear-gradient(90deg, #9b1d3a, #e8c56b 55%, #c45a1a);
 }
 
+.room-progress {
+  background: linear-gradient(90deg, #8a5a2b, #e7c99a 55%, #c47b84);
+}
+
+.memory-card.featured.room {
+  border-color: rgba(196, 154, 92, 0.7);
+  box-shadow: 0 0 0 1px rgba(231, 201, 154, 0.28), 0 18px 40px rgba(0, 0, 0, 0.28);
+  animation-name: roomPulse;
+}
+
+.memory-card.featured.room:hover {
+  border-color: rgba(231, 201, 154, 0.9);
+}
+
+.memory-card.featured.room .open-link {
+  color: #e7c99a;
+}
+
+@keyframes roomPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(231, 201, 154, 0.22), 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(196, 123, 132, 0.16), 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+}
+
 @keyframes morningPulse {
   0%,
   100% {
@@ -578,7 +606,8 @@ body.is-locked {
 /* MEMORY STORY */
 #view-memory-1,
 #view-memory-2,
-#view-memory-3 {
+#view-memory-3,
+#view-memory-4 {
   position: relative;
 }
 
@@ -1504,6 +1533,135 @@ body.is-locked {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.night-line {
+  max-width: 26rem;
+  margin: 36px auto 8px;
+  padding: 0 24px;
+  text-align: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(22px, 4.8vw, 28px);
+  line-height: 1.45;
+  color: #e8c56b;
+}
+
+.m3-hero .hero-copy,
+.m4-hero .hero-copy {
+  justify-self: center;
+  text-align: center;
+  max-width: 640px;
+}
+
+.story-garba .chapter > p,
+.story-garba .chapter > h2,
+.story-garba .chapter > .num,
+.story-garba .chapter > .whisper,
+.story-garba .sea-inner > p,
+.story-garba .sea-inner > h2,
+.story-garba .sea-inner > .num,
+.story-garba .shayari,
+.story-room .chapter > p,
+.story-room .chapter > h2,
+.story-room .chapter > .num,
+.story-room .shayari {
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-garba .frame,
+.story-room .frame {
+  width: min(100%, 420px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-garba .frame img,
+.story-garba .sea-chapter video,
+.story-room .frame img {
+  width: 100%;
+  max-height: 72dvh;
+  margin: 0 auto;
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.story-garba .frame figcaption,
+.story-room .frame figcaption {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.45;
+  color: var(--gold);
+  max-width: 22em;
+}
+
+.story-garba .chapter.paper .frame figcaption,
+.story-room .chapter.paper .frame figcaption {
+  color: #8a5a2b;
+}
+
+.story-room {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(196, 154, 92, 0.1), transparent 42%),
+    var(--bg);
+}
+
+.story-room .turn {
+  width: min(100%, 520px);
+  aspect-ratio: 16 / 9;
+  container-type: size;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #14110e;
+}
+
+.story-room .turn img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: 100cqw;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  box-shadow: none;
+  animation: none;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.chapter.paper.poem {
+  padding-top: 72px;
+  padding-bottom: 80px;
+}
+
+.poem-kicker {
+  margin: 0 auto 32px;
+  text-align: center;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #a56b3c;
+}
+
+.chapter.paper.poem .poem-line {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(22px, 4.8vw, 30px);
+  line-height: 1.4;
+  text-align: center;
+  color: #6d4422;
+  max-width: 18em;
+  margin: 0 auto 8px;
+}
+
+.poem-line:nth-child(odd) {
+  margin-bottom: 28px;
 }
 
 @media (prefers-reduced-motion: reduce) {
