@@ -8,6 +8,8 @@ const memoryView2 = document.getElementById("view-memory-2");
 const memoryView3 = document.getElementById("view-memory-3");
 const gateBtn = document.getElementById("gateBtn");
 const song = document.getElementById("song");
+const nightSong = document.getElementById("memory3song");
+let musicStarted = false;
 const muteBtn = document.getElementById("muteBtn");
 const proposal = document.getElementById("proposal");
 const proposalHint = document.getElementById("proposalHint");
@@ -71,12 +73,39 @@ function show(view) {
     resetReelStage();
   }
   if (view !== memoryView && typeof setRainLive === "function") setRainLive(false);
+  if (view === memoryView3 && nightSong) nightSong.currentTime = 0;
+  if (typeof syncScore === "function") syncScore();
+}
+
+function bedVolume() {
+  return rainVisible ? 0.28 : 0.38;
+}
+
+function syncScore() {
+  if (!musicStarted || !nightSong) return;
+  if (memoryView3.classList.contains("active")) {
+    song.pause();
+    nightSong.muted = song.muted;
+    nightSong.volume = reelStage && reelStage.classList.contains("is-open") ? 0.08 : 0.42;
+    nightSong.play().catch(() => {});
+    return;
+  }
+  nightSong.pause();
+  song.volume = bedVolume();
+  song.play().catch(() => {});
 }
 
 async function startMusic() {
-  song.volume = rainVisible ? 0.28 : 0.38;
+  musicStarted = true;
+  song.volume = bedVolume();
   try {
-    await song.play();
+    if (memoryView3.classList.contains("active")) {
+      nightSong.muted = song.muted;
+      nightSong.volume = 0.42;
+      await nightSong.play();
+    } else {
+      await song.play();
+    }
   } catch (_) {
     /* gesture already happened; ignore autoplay quirks */
   }
@@ -91,6 +120,7 @@ gateBtn.addEventListener("click", async () => {
 
 muteBtn.addEventListener("click", () => {
   song.muted = !song.muted;
+  if (nightSong) nightSong.muted = song.muted;
   muteBtn.classList.toggle("is-muted", song.muted);
   muteBtn.textContent = song.muted ? "♫" : "♪";
   if (rainAudio) {
@@ -240,6 +270,7 @@ function resetReelStage() {
   if (!video) return;
   video.pause();
   video.muted = true;
+  if (nightSong && !song.muted) nightSong.volume = 0.42;
   if (song && !song.muted) song.volume = rainVisible ? 0.28 : 0.38;
 }
 
@@ -251,7 +282,7 @@ function openReel() {
   if (!video.src && video.dataset.src) video.src = video.dataset.src;
   video.muted = false;
   video.play().catch(() => {});
-  if (song && !song.muted) song.volume = 0.08;
+  if (nightSong && !song.muted) nightSong.volume = 0.08;
 }
 
 reelStage.addEventListener("click", (event) => {
@@ -362,10 +393,16 @@ const videoObserver = new IntersectionObserver(
         const withSound = video.dataset.sound === "on";
         video.muted = !withSound;
         video.play().catch(() => {});
-        if (withSound && !song.muted) song.volume = 0.08;
+        if (withSound && !song.muted) {
+          if (video.closest("#reelStage") && nightSong) nightSong.volume = 0.08;
+          else song.volume = 0.08;
+        }
       } else {
         video.pause();
-        if (video.dataset.sound === "on" && !song.muted) song.volume = 0.38;
+        if (video.dataset.sound === "on" && !song.muted) {
+          if (video.closest("#reelStage") && nightSong) nightSong.volume = 0.42;
+          else song.volume = 0.38;
+        }
       }
     });
   },
